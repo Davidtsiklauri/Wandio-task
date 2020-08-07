@@ -1,0 +1,8 @@
+<section>
+    <app-book *ngIf="(book | async) as book;else:loader" 
+              [data]="book" [isDetailed]="true">
+    </app-book>
+    <ng-template #loader>
+        <app-loader></app-loader>
+    </ng-template>
+</section>

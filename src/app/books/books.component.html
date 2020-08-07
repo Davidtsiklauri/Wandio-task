@@ -1,0 +1,16 @@
+<section>
+    <ng-container *ngIf="( booksData | async ) as data; else:loader">
+        <app-search-input (searchValue)="search($event)"></app-search-input>
+        <app-infinity-scroll (scrolled)="onScroll($event)">
+            <h6>Total: {{ data['total'] }}</h6>
+            <hr>
+            <div class="row">
+                <app-book *ngFor="let book of data['books']" [data]="book"></app-book>
+            </div>
+        </app-infinity-scroll>
+    </ng-container>
+
+    <ng-template #loader>
+        <app-loader></app-loader>
+    </ng-template>
+</section>

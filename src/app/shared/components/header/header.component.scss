@@ -1,0 +1,20 @@
+header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+
+    .nav-wrapper {
+        padding: 0 20px;
+    }
+
+    .favourite {
+        position: relative;
+        &-amount{
+            position: absolute;
+            right: 23px;
+            top: 20px;
+        }
+    }
+}

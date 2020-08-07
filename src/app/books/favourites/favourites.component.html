@@ -1,0 +1,21 @@
+<div *ngIf="books$?.length > 0; else:empty">
+    <button class="btn red" *ngIf="!isLoading && books$?.length > 1"
+            (click)="removeAll()">
+        Remove All 
+    </button>
+    <div class="row">
+        <app-loader *ngIf="isLoading"></app-loader>
+        <ng-container *ngIf="!isLoading">
+            <ng-container *ngFor="let book$ of books$">
+                <ng-container *ngIf="(book$ | async) as book">
+                    <app-book [data]="book"></app-book>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+<ng-template #empty>
+    <div class="card-panel red">
+        <span class="white-text">You don`t have favourite books yet</span>
+    </div>
+</ng-template>
