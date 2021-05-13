@@ -1,11 +1,12 @@
 export interface Book {
-    id:string;
-    title:string;
-    description:string;
-    thumbnail:string;
+  id: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  url: string;
 }
 
 export interface Books {
-    books:Book[]
-    total:number;
+  books: Book[];
+  total: number;
 }

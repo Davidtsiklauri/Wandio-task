@@ -1,32 +1,40 @@
 <div class="card" *ngIf="data">
-    <div class="card-image">
-        <img [src]="data.thumbnail" appLazyImage>
-    </div>
-    <div class="card-content">
-        <span class="card-title" *ngIf="data?.title as title">
-            {{ title }}
-        </span>
-        <p *ngIf="data?.description as description">
-            <ng-container *ngIf="isDetailed">
-                <p [innerHTML]="description"></p>
-            </ng-container>
-            <ng-container *ngIf="!isDetailed">
-                <p [innerHTML]="description | slice:0:100"></p>
-            </ng-container>
-        </p>
-    </div>
-    <div class="card-action">
-        <a *ngIf="!isDetailed" class="btn" [routerLink]="['/books/book' , data.id]">
-            Read More
-        </a>
+  <div class="card-image">
+    <img [src]="data.thumbnail" appLazyImage />
+  </div>
+  <div class="card-content">
+    <span class="card-title" *ngIf="data?.title as title">
+      {{ title }}
+    </span>
+    <p *ngIf="data?.description as description">
+      <ng-container *ngIf="isDetailed">
+        <p [innerHTML]="description"></p>
+      </ng-container>
+      <ng-container *ngIf="!isDetailed">
+        <p [innerHTML]="description | slice: 0:100"></p>
+      </ng-container>
+    </p>
+  </div>
+  <div class="card-action">
+    <a *ngIf="!isDetailed" class="btn" [routerLink]="['/books/book', data.id]">
+      Read More
+    </a>
 
-        <button *ngIf="!hasFavourited" class="btn red favourite-btn" 
-                (click)="addToFavourite(data.id)">
-            <i class="material-icons">favorite_border</i>
-        </button>
-        <button *ngIf="hasFavourited" class="btn red favourite-btn" 
-                (click)="removeFromFavourite(data.id)">
-            <i class="material-icons">favorite</i>
-        </button>
-    </div>
+    <a class="btn" [href]="data.url" target="_blank"> Preview </a>
+
+    <button
+      *ngIf="!hasFavourited"
+      class="btn red favourite-btn"
+      (click)="addToFavourite(data.id)"
+    >
+      <i class="material-icons">favorite_border</i>
+    </button>
+    <button
+      *ngIf="hasFavourited"
+      class="btn red favourite-btn"
+      (click)="removeFromFavourite(data.id)"
+    >
+      <i class="material-icons">favorite</i>
+    </button>
+  </div>
 </div>

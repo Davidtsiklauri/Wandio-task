@@ -1,17 +1,17 @@
 <header>
-    <nav class="pr-2">
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo">Wandio Task</a>
-          <ul class="right">
-            <li routerLinkActive="active">
-              <a class="favourite" [routerLink]="['/books/favourites']">
-                <i class="material-icons">favorite_border</i>
-                <span class="favourite-amount" *ngIf="(count$ | async) as count">
-                  {{ count }}
-                </span>
-               </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <nav class="pr-2">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Online library</a>
+      <ul class="right">
+        <li routerLinkActive="active">
+          <a class="favourite" [routerLink]="['/books/favourites']">
+            <i class="material-icons">favorite_border</i>
+            <span class="favourite-amount" *ngIf="count$ | async as count">
+              {{ count }}
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
