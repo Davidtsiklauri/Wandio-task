@@ -8,5 +8,5 @@ export interface Book {
 
 export interface Books {
   books: Book[];
-  total: number;
+  total: string;
 }
